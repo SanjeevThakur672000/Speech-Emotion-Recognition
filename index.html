@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Emotion Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .error-message {
+            color: #ff0000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Audio for Emotion Prediction</h2>
+        <form action="/predict_audio" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="audio_file">Select an audio file:</label>
+                <input type="file" name="audio_data" id="audio_file" accept="audio/*" required>
+                <small class="error-message" id="file-error"></small>
+            </div>
+            <button type="submit" onclick="validateFile()">Predict Emotion</button>
+        </form>
+        {% if prediction_text %}
+            <div class="result">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function validateFile() {
+            var fileInput = document.getElementById('audio_file');
+            var file = fileInput.files[0];
+            var fileSize = file.size / 1024 / 1024; // in MB
+
+            // Example: Limit file size to 10MB
+            if (fileSize > 10) {
+                document.getElementById('file-error').textContent = 'File size exceeds 10MB limit.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('file-error').textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
