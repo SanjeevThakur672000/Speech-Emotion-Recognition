@@ -2,6 +2,8 @@
 
 This project implements a Speech Emotion Recognition (SER) system using Convolutional Neural Networks (CNN) in Python. The system is designed to classify audio recordings into various emotion categories, leveraging deep learning techniques to achieve accurate predictions. The goal is to enable machines to understand human emotions from speech, which can have applications in customer service, mental health monitoring, and more.
 
+Drive link: https://drive.google.com/drive/folders/125lBC2oJI8uwR-M9jI6ztETjhRhYrcqL?usp=sharing
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
