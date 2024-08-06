@@ -114,6 +114,7 @@ Note: While we've provided Kaggle paths in our code, we recommend accessing thes
 - `encoder2.pickle`: Label encoder for the emotion classes.
 - `scaler2.pickle`: Scaler for feature normalization.
 - `notebook/speech-emotion-recognition-CNN.ipynb`: Jupyter Notebook containing exploratory data analysis and model training steps.
+ https://drive.google.com/drive/folders/125lBC2oJI8uwR-M9jI6ztETjhRhYrcqL?usp=sharing
 
 ## Feature Extraction
 
